@@ -4,11 +4,10 @@ metadata:
   name: fastapi-service
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local   # ✅ REQUIRED FOR HEALTHCHECK
+  externalTrafficPolicy: Local     # ✅ required for proper LB health checks
   selector:
     app: fastapi-app
   ports:
   - name: http
     port: 80
     targetPort: 8000
-  healthCheckNodePort: 30154    # ✅ KEEP THIS EXACT
